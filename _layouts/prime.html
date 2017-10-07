@@ -4,12 +4,12 @@
     <td width="100">num</td>
   </tr>
   <tr>
-    <td>{{- 1 -}}</td>
-    <td>{{- 2 -}}</td>
+    <td>1</td>
+    <td>2</td>
   </tr>
 {%- assign id = 2                         -%}
 
-{%- for i in (3 .. 10000)                 -%}
+{%- for i in (3 .. 1000)                  -%}
 {%-   assign bad = false                  -%}
 
 {%-   assign end = i | minus: 1           -%}
