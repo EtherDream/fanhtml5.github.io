@@ -15,16 +15,16 @@
 {%- for num in (3 .. MAX)                 -%}
 {%-   assign bad = false                  -%}
 
-{%-   for j in (sqrt .. num)              -%}
-{%-     assign pow = j | times: j         -%}
-{%-     if pow > num                      -%}
-{%-       assign sqrt = j                 -%}
+{%-   for i in (sqrt .. num)              -%}
+{%-     assign pow = i | times: i         -%}
+{%-     if pow >= num                     -%}
+{%-       assign sqrt = i                 -%}
 {%-       break                           -%}
 {%-     endif                             -%}
 {%-   endfor                              -%}
 
-{%-   for j in (2 .. sqrt)                -%}
-{%-     assign mod = num | modulo: j      -%}
+{%-   for i in (2 .. sqrt)                -%}
+{%-     assign mod = num | modulo: i      -%}
 {%-     if mod == 0                       -%}
 {%-       assign bad = true               -%}
 {%-       break                           -%}
