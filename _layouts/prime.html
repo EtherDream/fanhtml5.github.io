@@ -1,0 +1,35 @@
+<table border="1">
+  <tr>
+    <td width="100">id</td>
+    <td width="100">num</td>
+  </tr>
+  <tr>
+    <td>{{- 1 -}}</td>
+    <td>{{- 2 -}}</td>
+  </tr>
+{%- assign id = 2                         -%}
+
+{%- for i in (3 .. 10000)                 -%}
+{%-   assign bad = false                  -%}
+
+{%-   assign end = i | minus: 1           -%}
+{%-   for j in (2 .. end)                 -%}
+{%-     assign mod = i | modulo: j        -%}
+{%-     if mod == 0                       -%}
+{%-       assign bad = true               -%}
+{%-       break                           -%}
+{%-     endif                             -%}
+{%-   endfor                              -%}
+
+{%-   if bad                              -%}
+{%-     continue                          -%}
+{%-   endif                               -%}
+
+  <tr>
+    <td>{{- id -}}</td>
+    <td>{{- i -}}</td>
+  </tr>
+
+{%-   assign id = id | plus: 1            -%}
+{%- endfor                                -%}
+</table>
