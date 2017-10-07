@@ -2,4 +2,5 @@
 layout: default
 ---
 
-{{ 'sales' | append: '.jpg' }}
+{% assign my_secret_string = "ShopifyIsAwesome!" | sha1 %}
+My encoded string is: {{ my_secret_string }}
