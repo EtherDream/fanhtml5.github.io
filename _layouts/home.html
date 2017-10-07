@@ -2,5 +2,6 @@
 layout: default
 ---
 
-{% assign my_secret_string = "ShopifyIsAwesome!" | sha1 %}
-My encoded string is: {{ my_secret_string }}
+{% for i in (1..1000) %}
+  {{ i }}
+{% endfor %}
