@@ -8,16 +8,20 @@
     <td>2</td>
   </tr>
 {%- assign id = 2                         -%}
+{%- assign sqrt = 2                       -%}
 
 {%- for i in (3 .. 10000)                 -%}
 {%-   assign bad = false                  -%}
 
-{%-   for j in (2 .. i)                   -%}
+{%-   for j in (sqrt .. i)                -%}
 {%-     assign pow = j | times: j         -%}
 {%-     if pow > i                        -%}
+{%-       assign sqrt = j                 -%}
 {%-       break                           -%}
 {%-     endif                             -%}
+{%-   endfor                              -%}
 
+{%-   for j in (2 .. sqrt)                -%}
 {%-     assign mod = i | modulo: j        -%}
 {%-     if mod == 0                       -%}
 {%-       assign bad = true               -%}
