@@ -9,11 +9,15 @@
   </tr>
 {%- assign id = 2                         -%}
 
-{%- for i in (3 .. 1000)                  -%}
+{%- for i in (3 .. 10000)                 -%}
 {%-   assign bad = false                  -%}
 
-{%-   assign end = i | minus: 1           -%}
-{%-   for j in (2 .. end)                 -%}
+{%-   for j in (2 .. i)                   -%}
+{%-     assign pow = j | times: j         -%}
+{%-     if pow > i                        -%}
+{%-       break                           -%}
+{%-     endif                             -%}
+
 {%-     assign mod = i | modulo: j        -%}
 {%-     if mod == 0                       -%}
 {%-       assign bad = true               -%}
