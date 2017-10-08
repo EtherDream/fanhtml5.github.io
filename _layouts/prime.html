@@ -8,15 +8,20 @@
     <td>2</td>
   </tr>
 {%- assign MAX = 10000                    -%}
+{%- assign MAX_SQRT = 100                 -%}
 
 {%- assign id = 1                         -%}
 {%- assign sqrt = 2                       -%}
 
 {%- for num in (3 .. MAX)                 -%}
-{%-   assign bad = false                  -%}
-{%-   assign end = num | divided_by: 2    -%}
+{%-   assign mod = num | modulo: 2        -%}
+{%-   if mod == 0                         -%}
+{%-     continue                          -%}
+{%-   endif                               -%}
 
-{%-   for i in (sqrt .. end)              -%}
+{%-   assign bad = false                  -%}
+
+{%-   for i in (sqrt .. MAX_SQRT)         -%}
 {%-     assign pow = i | times: i         -%}
 {%-     if pow >= num                     -%}
 {%-       assign sqrt = i                 -%}
@@ -24,7 +29,7 @@
 {%-     endif                             -%}
 {%-   endfor                              -%}
 
-{%-   for i in (2 .. sqrt)                -%}
+{%-   for i in (3 .. sqrt)                -%}
 {%-     assign mod = num | modulo: i      -%}
 {%-     if mod == 0                       -%}
 {%-       assign bad = true               -%}
