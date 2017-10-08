@@ -14,8 +14,9 @@
 
 {%- for num in (3 .. MAX)                 -%}
 {%-   assign bad = false                  -%}
+{%-   assign end = num | divided_by: 2    -%}
 
-{%-   for i in (sqrt .. num)              -%}
+{%-   for i in (sqrt .. end)              -%}
 {%-     assign pow = i | times: i         -%}
 {%-     if pow >= num                     -%}
 {%-       assign sqrt = i                 -%}
